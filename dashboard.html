@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindMate - Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            min-height: 100vh;
+        }
+        
+        .container { 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            padding: 2rem;
+        }
+        
+        .card { 
+            background: rgba(255,255,255,0.97); 
+            border-radius: 24px; 
+            padding: 3rem 2.5rem; 
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            width: 100%; 
+            max-width: 500px;
+            text-align: center;
+        }
+        
+        .success-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .title {
+            color: #1e293b;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        
+        .message {
+            color: #64748b;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 1.2rem 3rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(79,172,254,0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="success-icon">✅</div>
+            <h1 class="title">Login Successful!</h1>
+            <p class="message">
+                Welcome back, <strong id="userName"></strong>! Your mental wellness journey starts now. Let's understand your current emotional state and provide personalized support.
+            </p>
+            <button class="btn" onclick="proceedToAssessment()">
+                Click Here to Proceed →
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Check if logged in
+        if (!sessionStorage.getItem('loggedIn')) {
+            window.location.href = 'index.html';
+        }
+        
+        document.getElementById('userName').textContent = sessionStorage.getItem('userName');
+        
+        function proceedToAssessment() {
+            window.location.href = 'assessment.html';
+        }
+    </script>
+</body>
+</html>
